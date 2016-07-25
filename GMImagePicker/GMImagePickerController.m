@@ -29,7 +29,8 @@
         _allowsMultipleSelection = YES;
         _confirmSingleSelection = NO;
         _showCameraButton = NO;
-        
+        _arrangeSmartCollectionsFirst = NO;
+       
         // Grid configuration:
         _colsInPortrait = 3;
         _colsInLandscape = 5;

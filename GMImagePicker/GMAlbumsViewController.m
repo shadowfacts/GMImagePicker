@@ -98,8 +98,17 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
     PHFetchResult *topLevelUserCollections = [PHCollectionList fetchTopLevelUserCollectionsWithOptions:nil];
     PHFetchResult *smartAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeAlbumRegular options:nil];
     self.collectionsFetchResults = @[topLevelUserCollections, smartAlbums];
-    self.collectionsLocalizedTitles = @[NSLocalizedStringFromTableInBundle(@"picker.table.user-albums-header",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class], @"Albums"), NSLocalizedStringFromTableInBundle(@"picker.table.smart-albums-header",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class], @"Smart Albums")];
-    
+   
+    if(self.picker.arrangeSmartCollectionsFirst == YES)
+    {
+        self.collectionsLocalizedTitles = @[NSLocalizedStringFromTableInBundle(@"picker.table.smart-albums-header",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class], @"Smart Albums"),
+           NSLocalizedStringFromTableInBundle(@"picker.table.user-albums-header",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class], @"Albums")];
+    }
+    else
+    {
+        self.collectionsLocalizedTitles = @[NSLocalizedStringFromTableInBundle(@"picker.table.user-albums-header",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class], @"Albums"), NSLocalizedStringFromTableInBundle(@"picker.table.smart-albums-header",  @"GMImagePicker", [NSBundle bundleForClass:GMImagePickerController.class], @"Smart Albums")];
+    }
+   
     [self updateFetchResults];
     
     // Register for changes
@@ -190,9 +199,17 @@ static NSString * const CollectionCellReuseIdentifier = @"CollectionCell";
             }
         }
     }
-    
-    self.collectionsFetchResultsAssets= @[allFetchResultArray,userFetchResultArray,smartFetchResultArray];
-    self.collectionsFetchResultsTitles= @[allFetchResultLabel,userFetchResultLabel,smartFetchResultLabel];
+   
+    if(self.picker.arrangeSmartCollectionsFirst == YES)
+    {       
+        self.collectionsFetchResultsAssets = @[allFetchResultArray,smartFetchResultArray, userFetchResultArray];
+        self.collectionsFetchResultsTitles = @[allFetchResultLabel, smartFetchResultLabel, userFetchResultLabel];
+    }
+    else
+    {
+        self.collectionsFetchResultsAssets = @[allFetchResultArray, userFetchResultArray,smartFetchResultArray];
+        self.collectionsFetchResultsTitles = @[allFetchResultLabel, userFetchResultLabel,smartFetchResultLabel];
+    }
 }
 
 
