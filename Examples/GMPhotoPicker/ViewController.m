@@ -73,7 +73,9 @@
 //    picker.pickerFontHeaderSize = 17.0f;
 //    picker.pickerStatusBarStyle = UIStatusBarStyleLightContent;
 //    picker.useCustomFontForNavigationBar = YES;
-    
+ 
+//    picker.arrangeSmartCollectionsFirst = YES;
+   
     UIPopoverPresentationController *popPC = picker.popoverPresentationController;
     popPC.permittedArrowDirections = UIPopoverArrowDirectionAny;
     popPC.sourceView = _gmImagePickerButton;

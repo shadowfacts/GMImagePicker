@@ -151,6 +151,7 @@ static CGSize const kPopoverContentSize = {480, 720};
  * - pickerFontHeaderSize: The size of the custom font for album names. Defaults to 17.0f
  * - pickerStatusBarsStyle: On iPhones this will matter if custom navigation bar colours are being used. Defaults to UIStatusBarStyleDefault
  * - useCustomFontForNavigationBar: True to use the custom font (or it's default) in the navigation bar, false to leave to iOS Defaults.
+ * - arrangeSmartCollectionsFirst: True will put the users smart collections above their albums, false will set it opposite. Default is NO.
  */
 @property (nonatomic, strong) UIColor *pickerBackgroundColor;
 @property (nonatomic, strong) UIColor *pickerTextColor;
@@ -168,6 +169,7 @@ static CGSize const kPopoverContentSize = {480, 720};
 @property (nonatomic) CGFloat pickerFontHeaderSize;
 @property (nonatomic) UIStatusBarStyle pickerStatusBarStyle;
 @property (nonatomic) BOOL useCustomFontForNavigationBar;
+@property (nonatomic) BOOL arrangeSmartCollectionsFirst;
 
 /**
  * A reference to the navigation controller used to manage the whole picking process
