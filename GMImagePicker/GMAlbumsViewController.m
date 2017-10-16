@@ -196,8 +196,8 @@ static NSString *const CollectionCellReuseIdentifier = @"CollectionCell";
     }
   }
   
-  self.collectionsFetchResultsAssets= @[allFetchResultArray,userFetchResultArray,smartFetchResultArray];
-  self.collectionsFetchResultsTitles= @[allFetchResultLabel,userFetchResultLabel,smartFetchResultLabel];
+  self.collectionsFetchResultsAssets= @[allFetchResultArray,smartFetchResultArray,userFetchResultArray];
+  self.collectionsFetchResultsTitles= @[allFetchResultLabel,smartFetchResultLabel,userFetchResultLabel];
 }
 
 
