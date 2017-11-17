@@ -24,7 +24,7 @@
   if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])
   {
     // self.isAccessibilityElement             = YES;
-    
+      self.contentView.backgroundColor = [UIColor clearColor];
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     // Border width of 1 pixel:
